@@ -1,7 +1,7 @@
 resource "aws_instance" "docker_server" {
   ami = data.aws_ami.most_recent_amazon_linux_ami.id
   instance_type = "t2.medium"
-  key_name = "Kuberenetes-keypair.pem"
+  key_name = "Kuberenetes-keypair"
   associate_public_ip_address = true
   user_data = file("entry_script.sh")
   root_block_device {
