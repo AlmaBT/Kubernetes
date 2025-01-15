@@ -1,0 +1,23 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: alma-rs
+  labels:
+    name: alma
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: alma
+  template:
+    metadata:
+      labels:
+        name: alma
+    spec:
+      containers:
+      - name: rene-container
+        image: mlrene/boxer:latest-new
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name:  myregistrykey
