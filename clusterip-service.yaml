@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service  #object to be created
+metadata:  #Info about object to be created
+  name: my-clusterip-service   #Object name
+spec:
+  selector:    #Identifies the labels to match
+    name: alma     # Name of the pod OR label
+  ports:
+    - protocol: TCP   #type of traffic that the service listening for 
+      port: 8080       #port that the service is listening from
+      targetPort: 80  #the port that the service is distributing to the pods
+  type: ClusterIP
+
+#k port-forward services/my-clusterip-service 8080:8080 --address 0.0.0.0  (use services/name of the service in some cases)

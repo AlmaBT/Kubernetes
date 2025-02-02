@@ -1,0 +1,26 @@
+# create a pod that contains 2 containers called Alma and Marciy
+# the images required for the containers are mlrene/sample-repo:1.0 and mlrene/sample-repo:v1 respectively
+# you need a the same secret to access both images: 
+# SECRET
+#        DOCKER_USERNAME = mlrene
+#        DOCKER_PASSWORD   = Loraterr23
+apiVersion: v1
+kind: Pod
+metadata:
+  name: marciy-pod
+spec:
+  containers:
+  - name: alma
+    image: mlrene/sample-repo:1.0
+    ports:
+    - containerPort: 80
+    # env:
+    # - name: DOCKER_USERNAME
+    #   value: "mlrene"
+    # - name: DOCKER_PASSWORD
+    #   value: "Loraterr23"
+    # - name: DOCKER_SERVER
+    #   value: "https://index.docker.io/v1/"
+  imagePullSecrets: 
+    - name: docker-registry-secret-1  
+  

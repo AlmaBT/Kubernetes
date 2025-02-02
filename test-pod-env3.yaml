@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alma-pad-test
+spec:
+  containers:
+  - name: my-container
+    image: mlrene/sample-repo:1.0
+  imagePullSecrets:
+  - name: rene2-docker-secret

@@ -1,13 +1,14 @@
-apiVersion: apps/v1
+apiVersion: apps/v1    #kubectl api-resources --namespaced=true check the api version 
 kind: ReplicaSet
 metadata:
   name: alma
+  #namespace: dev
   labels:
     class: study-group
     purpose: test
 spec:
   # modify replicas according to your case
-  replicas: 20
+  replicas: 10
   selector:
     matchLabels:
       class: study-group

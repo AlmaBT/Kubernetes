@@ -1,0 +1,23 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: alma-nodeport-rs
+  labels:
+    app: alma
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: alma
+  template:
+    metadata:
+      labels:
+        app: alma
+    spec:
+      containers:
+      - name: rene-container
+        image: mlrene/indian-lady:latest
+        ports:
+        - containerPort: 80
+      #imagePullSecrets:
+       # - name:  myregistrykey

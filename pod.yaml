@@ -1,12 +1,13 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: Alma-pod
-  labels:
+apiVersion: v1    #version of the api
+kind: Pod         #what is your object
+metadata:        #information about the object we are creating. Under metadata we can specify namespace, annotation as well.
+  name: alma-pod
+  labels:          # labels are tags that are identifiable by selectors (replicaset). We can also have node selector. 
     app: nginx-wed
-spec:
+spec:                # Information about container or containers running in the pod.
   containers:
-  - name: nginx
-    image: nginx:latest
-    ports:
-    - containerPort: 80
+  - name: nginx          # Container name
+    image: nginx:1.24    # Image name
+    ports:               # Port a gateway that the pod uses to communicate with other 
+    - containerPort: 80   # k port-forward pod-name 8080:80 --address # Traffic comes from internet to the node 8080 and forward it to the specific pod port 80 that has the running container.
+                            
